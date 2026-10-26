@@ -2,6 +2,8 @@ import os
 import json
 import re
 import time
+import smtplib
+from email.message import EmailMessage
 import urllib.request
 import urllib.error
 import xml.etree.ElementTree as ET
@@ -349,6 +351,28 @@ def save_report(analysis, news, model):
     print("Raport salvestatud: AI_RADAR_REPORT.md")
 
 
+
+def send_report_email():
+    recipient = os.environ.get("REPORT_TO_EMAIL")
+    sender = os.environ.get("REPORT_FROM_EMAIL")
+    password = os.environ.get("GMAIL_APP_PASSWORD")
+    if not (recipient and sender and password):
+        print("E-kirja saatmine pole veel seadistatud: lisa GitHub Secrets REPORT_FROM_EMAIL ja GMAIL_APP_PASSWORD.")
+        return
+
+    with open("AI_RADAR_REPORT.md", encoding="utf-8") as report_file:
+        report = report_file.read()
+    message = EmailMessage()
+    message["Subject"] = "AI Radar - paevane AI uudiste raport"
+    message["From"] = sender
+    message["To"] = recipient
+    message.set_content(report)
+    with smtplib.SMTP_SSL("smtp.gmail.com", 465, timeout=30) as smtp:
+        smtp.login(sender, password)
+        smtp.send_message(message)
+    print("AI Radar raport saadetud e-postile.")
+
+
 # ==========================================
 # PROGRAMMI KAIVITAMINE
 # ==========================================
@@ -409,6 +433,7 @@ def main():
         news,
         model
     )
+    send_report_email()
 
     print()
     print("=" * 50)
