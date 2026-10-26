@@ -1,0 +1,1 @@
+name: Radar Manual Run. On: workflow dispatch. Jobs: run. Runs on: ubuntu latest. Steps: uses actions/checkout@v4. Järgmine: name: Run radar. Run: pipe install ja siis reavahetus ja python radar.py
