@@ -146,11 +146,9 @@ def find_gemini_model(api_key):
 
     available.sort(key=model_priority)
 
-    selected = available[0]
+    print("Saadaolevad mudelid:", ", ".join(available))
 
-    print("Valitud Gemini mudel:", selected)
-
-    return selected
+    return available
 
 
 # ==========================================
@@ -381,13 +379,23 @@ def main():
         print("AI-uudiseid ei leitud.")
         return
 
-    model = find_gemini_model(api_key)
+    models = find_gemini_model(api_key)
 
-    analysis = analyze_with_gemini(
-        news,
-        api_key,
-        model
-    )
+    analysis = None
+    model = None
+    for candidate in models:
+        try:
+            print("Proovin mudelit:", candidate)
+            analysis = analyze_with_gemini(news, api_key, candidate)
+            model = candidate
+            break
+        except RuntimeError as error:
+            if "HTTP 404" not in str(error):
+                raise
+            print("Mudel ei ole paringuks saadaval, proovin jargmist.")
+
+    if analysis is None:
+        raise RuntimeError("Ukski loetletud Gemini mudel ei vastanud. Kontrolli API vea selgitust.")
 
     print()
     print("=" * 50)
