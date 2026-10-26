@@ -355,7 +355,7 @@ def add_estonian_summaries(news, api_key, model):
         "Kirjuta iga alloleva uudise kohta 1-2 lühikest eestikeelset lauset. "
         "Kasuta ainult pealkirja ja olemasolevat kirjeldust. "
         "Ära lisa kontrollimata fakte. Tagasta ainult JSON massiiv "
-        "kujul [{\\"id\\": 0, \\"summary\\": \\"...\\"}]. "
+        'kujul [{"id": 0, "summary": "..."}]. '
         "Uudised: " + json.dumps([
             {"id": i, "title": n["title"], "description": n.get("summary", "")}
             for i, n in enumerate(news)
@@ -370,7 +370,7 @@ def add_estonian_summaries(news, api_key, model):
             p.get("text", "") for p in
             result["candidates"][0]["content"]["parts"]
         )
-        match = re.search(r"\\[.*\\]", answer, re.S)
+        match = re.search(r"\[.*\]", answer, re.S)
         if not match:
             return news
         for item in json.loads(match.group()):
