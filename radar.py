@@ -330,7 +330,7 @@ def enrich_news(news):
                 page = response.read(180000).decode("utf-8", errors="ignore")
                 base = response.geturl()
             def meta_value(name):
-                tags = re.findall(r"<meta\\s+[^>]*>", page, re.I)
+                tags = re.findall(r"<meta\s+[^>]*>", page, re.I)
                 for tag in tags:
                     attrs = dict(
                         (key.lower(), html.unescape(value))
@@ -511,9 +511,11 @@ def main():
             model = candidate
             break
         except RuntimeError as error:
-            if "HTTP 404" not in str(error):
-                raise
-            print("Mudel ei ole paringuks saadaval, proovin jargmist.")
+            message = str(error)
+            if any(f"HTTP {code}" in message for code in (404, 429, 500, 502, 503, 504)):
+                print("Gemini mudel ei vastanud, proovin jargmist:", message)
+                continue
+            raise
 
     if analysis is None:
         raise RuntimeError("Ukski loetletud Gemini mudel ei vastanud. Kontrolli API vea selgitust.")
