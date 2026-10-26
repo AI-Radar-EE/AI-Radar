@@ -1,17 +1,33 @@
-name: AI Radar Manual Run
+name: AI Radar Daily Report
 
 on:
   workflow_dispatch:
+  schedule:
+    # 08:00 Estonia: 05:00 UTC summer / 06:00 UTC winter.
+    - cron: '0 5,6 * * *'
 
 jobs:
   run:
     runs-on: ubuntu-latest
-
     steps:
+      - name: Check Estonia time for scheduled runs
+        id: localtime
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+        run: |
+          if [ "$EVENT_NAME" = "workflow_dispatch" ] || [ "$(TZ=Europe/Tallinn date +%H)" = "08" ]; then
+            echo "run=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "run=false" >> "$GITHUB_OUTPUT"
+          fi
       - name: Checkout repository
+        if: steps.localtime.outputs.run == 'true'
         uses: actions/checkout@v4
-
       - name: Run AI Radar
+        if: steps.localtime.outputs.run == 'true'
         env:
           GEMINI_API_KEY: ${{ secrets.GEMINI_API_KEY }}
+          GMAIL_APP_PASSWORD: ${{ secrets.GMAIL_APP_PASSWORD }}
+          REPORT_TO_EMAIL: tanel.levkoi@gmail.com
+          REPORT_FROM_EMAIL: ${{ secrets.REPORT_FROM_EMAIL }}
         run: python radar.py
