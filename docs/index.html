@@ -39,7 +39,7 @@ function renderNews(news){
   const body=document.createElement('div');body.className='news-body';
   const tag=document.createElement('div');tag.className='news-tag';try{tag.textContent=new URL(n.link).hostname.replace(/^www\./,'');}catch(e){tag.textContent='Uudis';}
   const a=document.createElement('a');a.href=n.link;a.target='_blank';a.rel='noopener noreferrer';a.textContent=n.title;
-  body.append(tag,a);if(n.summary){const summary=document.createElement('p');summary.className='news-summary';summary.textContent=n.summary;body.append(summary);}else{const summary=document.createElement('p');summary.className='news-summary';summary.textContent='Uudise pealkiri viitab sellele teemale. Täpsemat infot saad lugeda algallikast.';body.append(summary);}card.append(art,body);box.append(card);
+  body.append(tag,a);if(n.summary_et || n.summary){const summary=document.createElement('p');summary.className='news-summary';summary.textContent=n.summary_et || n.summary;body.append(summary);}else{const summary=document.createElement('p');summary.className='news-summary';summary.textContent='Loe täpsemalt algallikast.';body.append(summary);}card.append(art,body);box.append(card);
  });
  if(!box.children.length)box.textContent='Uudiseid ei leitud.';
 }
@@ -54,6 +54,6 @@ loadReport('data/report.json');
 fetch('data/archive/index.json?t='+Date.now()).then(r=>{if(!r.ok)throw Error('Arhiiv puudub');return r.json()}).then(days=>{
  const box=document.getElementById('archive-list');box.textContent='';
  const latest=document.createElement('button');latest.textContent='Viimane raport';latest.onclick=()=>loadReport('data/report.json');box.append(latest);
- days.forEach(day=>{if(!/^\\d{4}-\\d{2}-\\d{2}$/.test(day))return;const b=document.createElement('button');b.textContent=day.split('-').reverse().join('.');b.onclick=()=>{loadReport('data/archive/'+day+'.json');};box.append(b)});
+ days.forEach(day=>{if(!/^\d{4}-\d{2}-\d{2}$/.test(day))return;const b=document.createElement('button');b.textContent=day.split('-').reverse().join('.');b.onclick=()=>{loadReport('data/archive/'+day+'.json');};box.append(b)});
 }).catch(()=>{document.getElementById('archive-list').textContent='Arhiiv ilmub pärast järgmist edukat käivitust.'});
 </script></body></html>
