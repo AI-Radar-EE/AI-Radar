@@ -1,20 +1,54 @@
 import urllib.request
 import xml.etree.ElementTree as ET
+from datetime import datetime, timezone
 
-url = "https://news.ycombinator.com/rss"
+URL = "https://news.ycombinator.com/rss"
 
-print("AI Radar käivitus!")
-print("Otsin Hacker Newsi uudiseid...\n")
+KEYWORDS = [
+    "ai", "artificial intelligence", "llm", "gpt",
+    "gemini", "claude", "grok", "agent",
+    "machine learning", "openai", "anthropic",
+    "automation", "robot"
+]
 
-with urllib.request.urlopen(url, timeout=20) as response:
+print("=== AI RADAR | UUDISTE RAPORT ===")
+print("Kuupäev:", datetime.now(timezone.utc).strftime("%d.%m.%Y"))
+print()
+
+request = urllib.request.Request(
+    URL,
+    headers={"User-Agent": "AI-Radar/1.0"}
+)
+
+with urllib.request.urlopen(request, timeout=20) as response:
     data = response.read()
 
 root = ET.fromstring(data)
+news = root.findall("./channel/item")
 
-for entry in root.findall("./channel/item")[:10]:
-    title = entry.findtext("title", "Pealkiri puudub")
+ai_news = []
+
+for entry in news:
+    title = entry.findtext("title", "")
     link = entry.findtext("link", "")
 
-    print(title)
-    print(link)
-    print("---")
+    words = title.lower().split()
+    if any(keyword in words or keyword in title.lower()
+           for keyword in KEYWORDS):
+        ai_news.append((title, link))
+
+print("Leitud AI-teemalisi uudiseid:", len(ai_news))
+print()
+
+if not ai_news:
+    print("Praegu AI-teemalisi uudiseid ei leitud.")
+else:
+    print("=== TÄNASED AI AVASTUSED ===")
+
+    for number, (title, link) in enumerate(ai_news[:5], 1):
+        print()
+        print(f"{number}. {title}")
+        print(f"Allikas: {link}")
+
+print()
+print("=== RAPORT VALMIS ===")
