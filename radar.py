@@ -416,14 +416,30 @@ def save_report(analysis, news, model):
 
     print()
     os.makedirs("docs/data", exist_ok=True)
-    with open("docs/data/report.json", "w", encoding="utf-8") as data_file:
-        json.dump({
+    report_data = {
             "generated_at": datetime.now(timezone.utc).strftime("%d.%m.%Y %H:%M UTC"),
             "model": model,
             "analysis": analysis,
             "news": news
-        }, data_file, ensure_ascii=False, indent=2)
-    print("Raport salvestatud: AI_RADAR_REPORT.md ja docs/data/report.json")
+        }
+    from zoneinfo import ZoneInfo
+    day = datetime.now(ZoneInfo("Europe/Tallinn")).strftime("%Y-%m-%d")
+    report_data["date"] = day
+    os.makedirs("docs/data/archive", exist_ok=True)
+    with open("docs/data/report.json", "w", encoding="utf-8") as data_file:
+        json.dump(report_data, data_file, ensure_ascii=False, indent=2)
+    with open(f"docs/data/archive/{day}.json", "w", encoding="utf-8") as archive_file:
+        json.dump(report_data, archive_file, ensure_ascii=False, indent=2)
+    index_path = "docs/data/archive/index.json"
+    try:
+        with open(index_path, encoding="utf-8") as index_file:
+            archive_days = json.load(index_file)
+    except (OSError, ValueError):
+        archive_days = []
+    archive_days = sorted(set(archive_days + [day]), reverse=True)
+    with open(index_path, "w", encoding="utf-8") as index_file:
+        json.dump(archive_days, index_file, ensure_ascii=False, indent=2)
+    print("Raport salvestatud ning kuupaevalisse arhiivi lisatud.")
 
 
 
