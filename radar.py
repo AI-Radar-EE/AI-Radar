@@ -369,7 +369,7 @@ def add_estonian_summaries(news, api_key, model):
     try:
         result = api_request(f"{API_BASE}/{model}:generateContent", api_key, {
             "contents": [{"parts": [{"text": prompt}]}],
-            "generationConfig": {"temperature": 0.2, "maxOutputTokens": 1100}
+            "generationConfig": {"temperature": 0.2, "maxOutputTokens": 1800, "responseMimeType": "application/json"}
         })
         answer = "".join(
             p.get("text", "") for p in
@@ -382,7 +382,7 @@ def add_estonian_summaries(news, api_key, model):
             idx = item.get("id")
             summary = item.get("summary")
             if isinstance(idx, int) and 0 <= idx < len(news) and isinstance(summary, str):
-                news[idx]["summary"] = summary.strip()[:320]
+                news[idx]["summary_et"] = summary.strip()[:320]
     except Exception as error:
         print("Uudiste lyhikokkuvotted ei onnestunud:", type(error).__name__)
     return news
