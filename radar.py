@@ -212,7 +212,7 @@ def get_ai_news():
 def analyze_with_gemini(news, api_key, model):
 
     news_text = "\n".join(
-        f"{i}. {item['title']}\nAllikas: {item['link']}"
+        f"{i}. {item['title']}\nAllikas: {item['link']}\nArtikli tekst: {item.get('article_text', '')[:2500]}"
         for i, item in enumerate(news, 1)
     )
 
@@ -259,8 +259,8 @@ Anna kolm konkreetset tegevust.
 
 OLULINE:
 
-Sul on ainult uudiste pealkirjad ja lingid.
-Ara vaida, et oled artiklid labi lugenud.
+Sul on uudiste pealkirjad, lingid ja artiklitest eraldatud tekst.
+Toetu ainult antud artiklitekstile.
 Ara esita oletusi kinnitatud faktidena.
 
 Vasta selges eesti keeles.
@@ -319,6 +319,32 @@ Vasta selges eesti keeles.
 # ==========================================
 
 
+def extract_article_text(page):
+    from html.parser import HTMLParser
+    class Reader(HTMLParser):
+        def __init__(self):
+            super().__init__()
+            self.inside = False
+            self.parts = []
+            self.current = []
+        def handle_starttag(self, tag, attrs):
+            if tag == "p":
+                self.inside = True
+                self.current = []
+        def handle_endtag(self, tag):
+            if tag == "p" and self.inside:
+                value = " ".join("".join(self.current).split())
+                if len(value) >= 50:
+                    self.parts.append(value)
+                self.inside = False
+        def handle_data(self, data):
+            if self.inside:
+                self.current.append(data)
+    reader = Reader()
+    reader.feed(page)
+    return " ".join(reader.parts)[:6000]
+
+
 def enrich_news(news):
     """Read public page metadata for relevant pictures and short descriptions."""
     for item in news:
@@ -329,6 +355,11 @@ def enrich_news(news):
             with urllib.request.urlopen(request, timeout=7) as response:
                 page = response.read(180000).decode("utf-8", errors="ignore")
                 base = response.geturl()
+            article_text = extract_article_text(page)
+            if len(article_text) < 250:
+                print("Artikli tekst puudub:", item["link"])
+                continue
+            item["article_text"] = article_text
             def meta_value(name):
                 tags = re.findall(r"<meta\s+[^>]*>", page, re.I)
                 for tag in tags:
@@ -352,17 +383,17 @@ def enrich_news(news):
                 item["summary"] = description[:220]
         except Exception:
             pass
-    return news
+    return [item for item in news if item.get("article_text")]
 
 def add_estonian_summaries(news, api_key, model):
     """Summarize headlines cautiously, without pretending articles were read."""
     prompt = (
         "Kirjuta iga alloleva uudise kohta 1-2 lühikest eestikeelset lauset. "
-        "Kasuta ainult pealkirja ja olemasolevat kirjeldust. "
+        "Kasuta ainult artikli teksti ja ära lisa kontrollimata fakte. "
         "Ära lisa kontrollimata fakte. Tagasta ainult JSON massiiv "
         'kujul [{"id": 0, "summary": "..."}]. '
         "Uudised: " + json.dumps([
-            {"id": i, "title": n["title"], "description": n.get("summary", "")}
+            {"id": i, "title": n["title"], "article_text": n.get("article_text", "")[:4000]}
             for i, n in enumerate(news)
         ], ensure_ascii=False)
     )
@@ -500,6 +531,9 @@ def main():
         return
 
     news = enrich_news(news)
+    if not news:
+        print("Piisava sisuga artikleid ei leitud; vana raport jääb alles.")
+        return
     models = find_gemini_model(api_key)
 
     analysis = None
@@ -528,6 +562,8 @@ def main():
     print(analysis)
 
     news = add_estonian_summaries(news, api_key, model)
+    for item in news:
+        item.pop("article_text", None)
     save_report(
         analysis,
         news,
