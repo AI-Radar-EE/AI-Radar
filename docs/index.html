@@ -22,16 +22,24 @@ function renderReport(md){
  }
  return html+(list?'</ul>':'');
 }
+function makeIllustration(title){
+ const t=(title||'').toLowerCase();
+ const category=/robot|agent|automation/.test(t)?'AUTONOOMSED AGENDID':/model|gpt|llm|gemini|claude/.test(t)?'KEELEM UDELID':/chip|gpu|compute|data center/.test(t)?'AI TARISTU':/safety|security|risk/.test(t)?'AI TURVALISUS':'TEHISINTELLEKT';
+ const svg=document.createElementNS('http://www.w3.org/2000/svg','svg');
+ svg.setAttribute('viewBox','0 0 600 220');svg.setAttribute('width','100%');svg.setAttribute('height','100%');svg.setAttribute('aria-label','Teemakohane illustratsioon: '+category);
+ svg.innerHTML='<defs><linearGradient id="g" x2="1" y2="1"><stop stop-color="#173b70"/><stop offset="1" stop-color="#14646e"/></linearGradient></defs><rect width="600" height="220" fill="url(#g)"/><circle cx="490" cy="55" r="95" fill="#55d9c0" opacity=".12"/><circle cx="500" cy="65" r="58" stroke="#77f5d6" stroke-width="2" fill="none" opacity=".5"/><path d="M40 155 L120 80 L190 155 L265 85 L340 155" stroke="#77f5d6" stroke-width="4" fill="none" opacity=".5"/><text x="35" y="196" font-size="21" font-family="Arial,sans-serif" font-weight="bold" fill="#eafcff">'+category+'</text>';
+ return svg;
+}
 function renderNews(news){
  const box=document.getElementById('news-cards');
  box.textContent='';
  (news||[]).forEach((n,i)=>{
   const card=document.createElement('article');card.className='news-card';
-  const art=document.createElement('div');art.className='news-image';art.setAttribute('aria-hidden','true');if(n.image && n.image.startsWith('https://')){const img=document.createElement('img');img.src=n.image;img.alt='Uudise illustratsioon';img.loading='lazy';img.onerror=()=>{img.remove();art.textContent='◈';};art.append(img);}else{art.textContent='◈';}
+  const art=document.createElement('div');art.className='news-image';art.setAttribute('aria-hidden','true');if(n.image && n.image.startsWith('https://')){const img=document.createElement('img');img.src=n.image;img.alt='Uudise illustratsioon';img.loading='lazy';img.onerror=()=>{img.remove();art.append(makeIllustration(n.title));};art.append(img);}else{art.append(makeIllustration(n.title));}
   const body=document.createElement('div');body.className='news-body';
   const tag=document.createElement('div');tag.className='news-tag';try{tag.textContent=new URL(n.link).hostname.replace(/^www\./,'');}catch(e){tag.textContent='Uudis';}
   const a=document.createElement('a');a.href=n.link;a.target='_blank';a.rel='noopener noreferrer';a.textContent=n.title;
-  body.append(tag,a);if(n.summary){const summary=document.createElement('p');summary.className='news-summary';summary.textContent=n.summary;body.append(summary);}else{const summary=document.createElement('p');summary.className='news-summary';summary.textContent='Ava uudis, et teema kohta lähemalt lugeda.';body.append(summary);}card.append(art,body);box.append(card);
+  body.append(tag,a);if(n.summary){const summary=document.createElement('p');summary.className='news-summary';summary.textContent=n.summary;body.append(summary);}else{const summary=document.createElement('p');summary.className='news-summary';summary.textContent='Uudise pealkiri viitab sellele teemale. Täpsemat infot saad lugeda algallikast.';body.append(summary);}card.append(art,body);box.append(card);
  });
  if(!box.children.length)box.textContent='Uudiseid ei leitud.';
 }
