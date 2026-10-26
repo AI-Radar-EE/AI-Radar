@@ -3,6 +3,8 @@ import json
 import re
 import time
 import smtplib
+import html
+from urllib.parse import urlparse
 from email.message import EmailMessage
 import urllib.request
 import urllib.error
@@ -316,6 +318,37 @@ Vasta selges eesti keeles.
 # RAPORTI SALVESTAMINE
 # ==========================================
 
+
+def enrich_news(news):
+    """Read public page metadata for relevant pictures and short descriptions."""
+    for item in news:
+        try:
+            request = urllib.request.Request(
+                item["link"], headers={"User-Agent": "Mozilla/5.0 (compatible; AIRadar/1.0)"}
+            )
+            with urllib.request.urlopen(request, timeout=7) as response:
+                page = response.read(180000).decode("utf-8", errors="ignore")
+                base = response.geturl()
+            def meta_value(name):
+                pattern = r'<meta\\b[^>]*(?:property|name)\\s*=\\s*["\\']' + re.escape(name) + r'["\\'][^>]*>'
+                tag = re.search(pattern, page, re.I)
+                if not tag:
+                    return ""
+                value = re.search(r'content\\s*=\\s*(["\\'])(.*?)\\1', tag.group(), re.I | re.S)
+                return html.unescape(value.group(2)).strip() if value else ""
+            from urllib.parse import urljoin
+            image = meta_value("og:image") or meta_value("twitter:image")
+            if image:
+                image = urljoin(base, image)
+                if image.startswith("https://"):
+                    item["image"] = image
+            description = meta_value("og:description") or meta_value("description")
+            if description:
+                item["summary"] = description[:220]
+        except Exception:
+            pass
+    return news
+
 def save_report(analysis, news, model):
 
     date = datetime.now(
@@ -411,6 +444,7 @@ def main():
         print("AI-uudiseid ei leitud.")
         return
 
+    news = enrich_news(news)
     models = find_gemini_model(api_key)
 
     analysis = None
