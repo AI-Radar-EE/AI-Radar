@@ -1,6 +1,7 @@
 import os
 import json
 import re
+import time
 import urllib.request
 import urllib.error
 import xml.etree.ElementTree as ET
@@ -56,22 +57,21 @@ def api_request(url, api_key, payload=None):
         method=method
     )
 
-    try:
-        with urllib.request.urlopen(request, timeout=90) as response:
-            return json.loads(response.read().decode("utf-8"))
-
-    except urllib.error.HTTPError as error:
-
-        details = error.read().decode("utf-8")
-
-        print()
-        print("GEMINI API VIGA")
-        print("HTTP staatus:", error.code)
-        print("Selgitus:", details[:1500])
-
-        raise RuntimeError(
-            f"Gemini API paring ebaonnestus: HTTP {error.code}"
-        ) from error
+    for attempt in range(3):
+        try:
+            with urllib.request.urlopen(request, timeout=90) as response:
+                return json.loads(response.read().decode("utf-8"))
+        except urllib.error.HTTPError as error:
+            details = error.read().decode("utf-8", errors="replace")
+            print("Gemini HTTP:", error.code, "Selgitus:", details[:1000])
+            if error.code in (429, 500, 502, 503, 504) and attempt < 2:
+                wait = 10 * (2 ** attempt)
+                print("Ajutine viga, proovin uuesti", wait, "sekundi parast.")
+                time.sleep(wait)
+                continue
+            raise RuntimeError(
+                f"Gemini API paring ebaonnestus: HTTP {error.code}"
+            ) from error
 
 
 # ==========================================
