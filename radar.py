@@ -348,7 +348,15 @@ def save_report(analysis, news, model):
         file.write("\n".join(lines))
 
     print()
-    print("Raport salvestatud: AI_RADAR_REPORT.md")
+    os.makedirs("docs/data", exist_ok=True)
+    with open("docs/data/report.json", "w", encoding="utf-8") as data_file:
+        json.dump({
+            "generated_at": datetime.now(timezone.utc).strftime("%d.%m.%Y %H:%M UTC"),
+            "model": model,
+            "analysis": analysis,
+            "news": news
+        }, data_file, ensure_ascii=False, indent=2)
+    print("Raport salvestatud: AI_RADAR_REPORT.md ja docs/data/report.json")
 
 
 
