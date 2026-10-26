@@ -160,49 +160,68 @@ def find_gemini_model(api_key):
 # ==========================================
 
 def get_ai_news():
+    """Collect and deduplicate AI news from multiple publishers."""
+    from urllib.parse import quote
+    from datetime import timedelta
+    sources = [
+        ("Hacker News", RSS_URL),
+        ("TechCrunch", "https://techcrunch.com/category/artificial-intelligence/feed/"),
+        ("The Verge", "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml"),
+        ("MIT Technology Review", "https://www.technologyreview.com/feed/"),
+    ]
+    # Google News provides public publisher headlines, including sources without RSS.
+    for publisher, domain in [
+        ("Reuters", "reuters.com"),
+        ("Bloomberg", "bloomberg.com"),
+        ("OpenAI", "openai.com"),
+        ("Google DeepMind", "deepmind.google"),
+        ("Anthropic", "anthropic.com"),
+        ("Microsoft", "microsoft.com"),
+    ]:
+        query = quote("AI OR artificial intelligence site:" + domain)
+        sources.append((publisher, "https://news.google.com/rss/search?q=" + query + "&hl=en-US&gl=US&ceid=US:en"))
 
-    print()
-    print("Kogun varskeid AI-uudiseid...")
-
-    request = urllib.request.Request(
-        RSS_URL,
-        headers={"User-Agent": "AI-Radar/1.0"}
-    )
-
-    with urllib.request.urlopen(request, timeout=30) as response:
-        data = response.read()
-
-    root = ET.fromstring(data)
-
-    entries = root.findall("./channel/item")
-
-    results = []
-
-    for entry in entries:
-
-        title = entry.findtext("title", "")
-        link = entry.findtext("link", "")
-
-        title_lower = title.lower()
-
-        matched = False
-
-        for keyword in KEYWORDS:
-
-            pattern = r"(?<!\w)" + re.escape(keyword) + r"(?!\w)"
-
-            if re.search(pattern, title_lower):
-                matched = True
-                break
-
-        if matched:
-
-            results.append({
-                "title": title,
-                "link": link
-            })
-
-    return results[:5]
+    cutoff = datetime.now(timezone.utc) - timedelta(hours=48)
+    found = []
+    seen = set()
+    for publisher, feed_url in sources:
+        try:
+            request = urllib.request.Request(feed_url, headers={"User-Agent": "Mozilla/5.0 AI-Radar/1.0"})
+            with urllib.request.urlopen(request, timeout=15) as response:
+                root = ET.fromstring(response.read(500000))
+            count = 0
+            for entry in root.findall(".//item") + root.findall(".//{http://www.w3.org/2005/Atom}entry"):
+                title = (entry.findtext("title") or entry.findtext("{http://www.w3.org/2005/Atom}title") or "").strip()
+                link = (entry.findtext("link") or "").strip()
+                if not link:
+                    atom_link = entry.find("{http://www.w3.org/2005/Atom}link")
+                    if atom_link is not None:
+                        link = atom_link.get("href", "")
+                if not title or not link.startswith("https://"):
+                    continue
+                relevant = any(re.search(r"(?<!\\w)" + re.escape(k) + r"(?!\\w)", title.lower()) for k in KEYWORDS)
+                if not relevant and publisher not in ("TechCrunch", "The Verge"):
+                    continue
+                published = entry.findtext("pubDate")
+                if published:
+                    try:
+                        from email.utils import parsedate_to_datetime
+                        if parsedate_to_datetime(published).astimezone(timezone.utc) < cutoff:
+                            continue
+                    except (TypeError, ValueError):
+                        pass
+                key = re.sub(r"[^a-z0-9]", "", title.lower())[:90]
+                if key in seen:
+                    continue
+                seen.add(key)
+                found.append({"title": title, "link": link, "publisher": publisher})
+                count += 1
+                if count >= 8:
+                    break
+            print(publisher, "uudiseid:", count)
+        except Exception as error:
+            print(publisher, "voog ei olnud saadaval:", type(error).__name__)
+    return found[:40]
 
 
 # ==========================================
@@ -212,7 +231,7 @@ def get_ai_news():
 def analyze_with_gemini(news, api_key, model):
 
     news_text = "\n".join(
-        f"{i}. {item['title']}\nAllikas: {item['link']}\nArtikli tekst: {item.get('article_text', '')[:2500]}"
+        f"{i}. {item['title']}\nAllikas: {item['link']}\nSisu: {(item.get('article_text') or item.get('summary', ''))[:2500]}"
         for i, item in enumerate(news, 1)
     )
 
@@ -259,7 +278,7 @@ Anna kolm konkreetset tegevust.
 
 OLULINE:
 
-Sul on uudiste pealkirjad, lingid ja artiklitest eraldatud tekst.
+Sul on uudiste pealkirjad, lingid ja artiklitest eraldatud tekst või väljaandja kirjeldus.
 Toetu ainult antud artiklitekstile.
 Ara esita oletusi kinnitatud faktidena.
 
@@ -356,10 +375,8 @@ def enrich_news(news):
                 page = response.read(180000).decode("utf-8", errors="ignore")
                 base = response.geturl()
             article_text = extract_article_text(page)
-            if len(article_text) < 250:
-                print("Artikli tekst puudub:", item["link"])
-                continue
-            item["article_text"] = article_text
+            if len(article_text) >= 250:
+                item["article_text"] = article_text
             def meta_value(name):
                 tags = re.findall(r"<meta\s+[^>]*>", page, re.I)
                 for tag in tags:
@@ -383,7 +400,7 @@ def enrich_news(news):
                 item["summary"] = description[:220]
         except Exception:
             pass
-    return [item for item in news if item.get("article_text")]
+    return [item for item in news if len(item.get("article_text", "")) >= 250 or len(item.get("summary", "")) >= 90][:10]
 
 def add_estonian_summaries(news, api_key, model):
     """Summarize headlines cautiously, without pretending articles were read."""
@@ -393,7 +410,7 @@ def add_estonian_summaries(news, api_key, model):
         "Ära lisa kontrollimata fakte. Tagasta ainult JSON massiiv "
         'kujul [{"id": 0, "summary": "..."}]. '
         "Uudised: " + json.dumps([
-            {"id": i, "title": n["title"], "article_text": n.get("article_text", "")[:4000]}
+            {"id": i, "title": n["title"], "article_text": n.get("article_text", "")[:3000], "description": n.get("summary", "")}
             for i, n in enumerate(news)
         ], ensure_ascii=False)
     )
