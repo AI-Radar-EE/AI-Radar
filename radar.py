@@ -330,12 +330,17 @@ def enrich_news(news):
                 page = response.read(180000).decode("utf-8", errors="ignore")
                 base = response.geturl()
             def meta_value(name):
-                pattern = r'<meta\\b[^>]*(?:property|name)\\s*=\\s*["\\']' + re.escape(name) + r'["\\'][^>]*>'
-                tag = re.search(pattern, page, re.I)
-                if not tag:
-                    return ""
-                value = re.search(r'content\\s*=\\s*(["\\'])(.*?)\\1', tag.group(), re.I | re.S)
-                return html.unescape(value.group(2)).strip() if value else ""
+                tags = re.findall(r"<meta\\s+[^>]*>", page, re.I)
+                for tag in tags:
+                    attrs = dict(
+                        (key.lower(), html.unescape(value))
+                        for key, _, value in re.findall(
+                            r"""([a-zA-Z-]+)\s*=\s*(["'])(.*?)\2""", tag, re.S
+                        )
+                    )
+                    if attrs.get("property", "").lower() == name.lower() or attrs.get("name", "").lower() == name.lower():
+                        return attrs.get("content", "").strip()
+                return ""
             from urllib.parse import urljoin
             image = meta_value("og:image") or meta_value("twitter:image")
             if image:
