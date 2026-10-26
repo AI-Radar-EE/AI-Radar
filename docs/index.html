@@ -1,14 +1,30 @@
 <!doctype html>
 <html lang="et"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AI Radar</title>
 <style>
-body{margin:0;background:#091020;color:#eaf1ff;font:16px system-ui,sans-serif}header,main{max-width:1050px;margin:auto;padding:24px}.brand{font-size:25px;font-weight:900;color:#6ef0c9}.hero{padding:65px 35px;border-radius:24px;background:linear-gradient(125deg,#14294e,#12213a 70%,#2a4b67);margin-bottom:22px}h1{font-size:clamp(34px,6vw,60px);margin:0}p{line-height:1.7;color:#bdcce2}.meta{color:#6ef0c9}.grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}.card{background:#14223a;border:1px solid #30415c;border-radius:18px;padding:26px;margin:15px 0}h2,h3{color:white}a{color:#6ef0c9}.report{white-space:pre-wrap;line-height:1.8;overflow-wrap:anywhere}.small{font-size:13px;color:#99b0cd}@media(max-width:750px){.grid{display:block}.hero{padding:35px 24px}}
+body{margin:0;background:#091020;color:#eaf1ff;font:16px system-ui,sans-serif}header,main{max-width:1050px;margin:auto;padding:24px}.brand{font-size:25px;font-weight:900;color:#6ef0c9}.hero{padding:65px 35px;border-radius:24px;background:linear-gradient(125deg,#14294e,#12213a 70%,#2a4b67);margin-bottom:22px}h1{font-size:clamp(34px,6vw,60px);margin:0}p{line-height:1.7;color:#bdcce2}.meta{color:#6ef0c9}.grid{display:grid;grid-template-columns:2fr 1fr;gap:20px}.card{background:#14223a;border:1px solid #30415c;border-radius:18px;padding:26px;margin:15px 0}h2,h3{color:white}a{color:#6ef0c9}.report{line-height:1.75;overflow-wrap:anywhere}.report h2{font-size:23px;margin:34px 0 15px;border-bottom:1px solid #30415c;padding-bottom:10px}.report h3{font-size:19px;margin-top:24px}.report p{margin:12px 0}.report li{padding-left:5px;margin:12px 0}.report strong{color:#fff}.small{font-size:13px;color:#99b0cd}@media(max-width:750px){.grid{display:block}.hero{padding:35px 24px}}
 </style></head><body>
 <header class="brand">◉ AI RADAR</header><main><section class="hero"><p class="meta">IGAPÄEVANE AI ÜLEVAADE</p><h1>Tehisintellekti maailm.<br>Ühes kohas.</h1><p>Värsked uudised, trendid ja ärivõimalused eesti keeles. Uuendus igal hommikul kell 08.00 Eesti aja järgi.</p></section>
 <div class="grid"><section class="card"><p class="meta" id="date">Laadin viimast raportit…</p><h2>Tänane analüüs</h2><div id="report" class="report">Ootan raportit…</div></section><aside><div class="card"><h3>Uudiste allikad</h3><div id="sources"></div></div><div class="card small">AI Radar analüüsib Hacker Newsi pealkirju Gemini abil. Hinnangud ja äriideed ei ole kinnitatud faktid. GitHub Actionsi ajastatud käivitus võib hilineda.</div></aside></div></main>
 <script>
+function esc(s){return String(s).replace(/[&<>"]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]));}
+function fmt(s){return esc(s).replace(/\\*\\*(.+?)\\*\\*/g,'<strong>$1</strong>');}
+function renderReport(md){
+let html='',list=false;
+for(const raw of md.split('\\n')){
+ const line=raw.trim();
+ if(!line){if(list){html+='</ul>';list=false;}continue;}
+ const h=line.match(/^#{1,6}\\s*(.+)$/);
+ if(h){if(list){html+='</ul>';list=false;}html+='<h2>'+fmt(h[1])+'</h2>';continue;}
+ const item=line.match(/^(?:[-*]|\\d+[.)])\\s+(.+)$/);
+ if(item){if(!list){html+='<ul>';list=true;}html+='<li>'+fmt(item[1])+'</li>';continue;}
+ if(list){html+='</ul>';list=false;}
+ html+='<p>'+fmt(line)+'</p>';
+}
+return html+(list?'</ul>':'');
+}
 fetch('data/report.json?t='+Date.now()).then(r=>{if(!r.ok)throw Error('missing');return r.json()}).then(d=>{
 document.getElementById('date').textContent='Viimati uuendatud: '+d.generated_at+' · '+d.model;
-document.getElementById('report').textContent=d.analysis;
+document.getElementById('report').innerHTML=renderReport(d.analysis);
 const box=document.getElementById('sources');box.textContent='';
 (d.news||[]).forEach(n=>{let p=document.createElement('p'),a=document.createElement('a');a.href=n.link;a.textContent=n.title;a.target='_blank';a.rel='noopener noreferrer';p.append(a);box.append(p)});
 }).catch(()=>{document.getElementById('report').textContent='Esimene veebiraport ei ole veel avaldatud. Käivita AI Radar GitHub Actionsis.'});
