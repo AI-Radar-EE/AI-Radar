@@ -349,6 +349,40 @@ def enrich_news(news):
             pass
     return news
 
+def add_estonian_summaries(news, api_key, model):
+    """Summarize headlines cautiously, without pretending articles were read."""
+    prompt = (
+        "Kirjuta iga alloleva uudise kohta 1-2 lühikest eestikeelset lauset. "
+        "Kasuta ainult pealkirja ja olemasolevat kirjeldust. "
+        "Ära lisa kontrollimata fakte. Tagasta ainult JSON massiiv "
+        "kujul [{\\"id\\": 0, \\"summary\\": \\"...\\"}]. "
+        "Uudised: " + json.dumps([
+            {"id": i, "title": n["title"], "description": n.get("summary", "")}
+            for i, n in enumerate(news)
+        ], ensure_ascii=False)
+    )
+    try:
+        result = api_request(f"{API_BASE}/{model}:generateContent", api_key, {
+            "contents": [{"parts": [{"text": prompt}]}],
+            "generationConfig": {"temperature": 0.2, "maxOutputTokens": 1100}
+        })
+        answer = "".join(
+            p.get("text", "") for p in
+            result["candidates"][0]["content"]["parts"]
+        )
+        match = re.search(r"\\[.*\\]", answer, re.S)
+        if not match:
+            return news
+        for item in json.loads(match.group()):
+            idx = item.get("id")
+            summary = item.get("summary")
+            if isinstance(idx, int) and 0 <= idx < len(news) and isinstance(summary, str):
+                news[idx]["summary"] = summary.strip()[:320]
+    except Exception as error:
+        print("Uudiste lyhikokkuvotted ei onnestunud:", type(error).__name__)
+    return news
+
+
 def save_report(analysis, news, model):
 
     date = datetime.now(
@@ -470,6 +504,7 @@ def main():
 
     print(analysis)
 
+    news = add_estonian_summaries(news, api_key, model)
     save_report(
         analysis,
         news,
