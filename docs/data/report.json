@@ -1,32 +1,37 @@
 {
-  "generated_at": "26.10.2026 19:28 UTC",
+  "generated_at": "26.10.2026 20:06 UTC",
   "model": "models/gemini-3.1-flash-lite",
-  "analysis": "Siin on AI Radari analüüs esitatud uudiste põhjal.\n\n---\n\n### 1. TÄHTSAMAD AI-UUDISED\n\n*   **GPT-6.1 Terra (OpenAI):** Mudeli lansseerimine viitab OpenAI järgmisele suurele tehnoloogilisele hüppele. \"Terra\" nimes võib viidata kas uuele andmetöötluse mastaabile või spetsiifilisele optimeerimisele (nt maateadused, füüsiline maailm või tohutu andmemaht). See kinnitab AI-mudelite jätkuvat ja kiiret võimekuse kasvu.\n*   **Anthropic S-1 (SEC dokument):** See viitab Anthropicu ettevalmistustele avalikuks pakkumiseks (IPO) või olulisele finantsstruktuuride muutusele. See on märk AI-sektori küpsemisest, kus ettevõtted liiguvad teadusarenduselt börsiettevõteteks.\n*   **Concerning behavior from a popular open-weight AI model (Cohere):** See uudis tõstatab küsimusi avatud lähtekoodiga (open-weight) mudelite turvalisuse ja kontrollitavuse osas. See võib viidata vajadusele rangema reguleerimise või uute turvakihtide järele AI-süsteemides.\n*   **The Git Forge for Agent-Human Collaboration (Entire.com):** See uudis viitab uue töökeskkonna loomisele, kus AI-agendid ja inimesed teevad koodi kirjutamisel ja haldamisel tihedat koostööd. See muudab tarkvaraarenduse paradigmaatiliselt.\n\n---\n\n### 2. OLULISEMAD AI-TRENDID\n\n1.  **Agentne koostöö:** AI ei ole enam ainult vestluspartner, vaid aktiivne töökaaslane, kes integreerub otse arendusprotsessidesse (Git Forge).\n2.  **Finantsiline küpsemine:** AI-hiiglased liiguvad börsile, mis toob kaasa suurema läbipaistvuse ja kapitali kaasamise vajaduse.\n3.  **Turvalisuse fookus:** Avatud mudelite riskide esiletoomine näitab, et tööstus hakkab tõsiselt tegelema AI \"hallutsinatsioonide\" ja pahatahtliku kasutamise ohjamisega.\n\n---\n\n### 3. ÄRIVÕIMALUSED\n\n1.  **Agentide haldusteenus (AgentOps):** Ettevõtete abistamine AI-agentide integreerimisel nende töövoogudesse, tagades turvalisuse ja tõhususe (kasutades Git Forge tüüpi tööriistu).\n2.  **AI-turvalisuse audit:** Teenus, mis analüüsib avatud lähtekoodiga mudelite käitumist ja turvariske ettevõtte spetsiifilises keskkonnas.\n3.  **Spetsialiseeritud \"Terra\" rakendused:** GPT-6.1 Terra võimekuse ärakasutamine nišivaldkondades (nt georuumiline analüüs, kliimamudelite prognoosimine või suurandmete süntees).\n\n---\n\n### 4. PARIM IDEE: Agentide haldusteenus (AgentOps)\n\n**Miks see on hea?** Ettevõtted tahavad AI-agente kasutada, kuid kardavad nende kontrollimatut käitumist ja andmelekkeid. \"AgentOps\" täidab selle tühimiku.\n\n*   **Kellele müüa?** Keskmise suurusega tarkvaraarendusettevõtted ja tehnoloogiaosakonnad, kes kasutavad juba AI-tööriistu, kuid vajavad nende haldamiseks struktuuri.\n*   **Kuidas alustada?** Loo metoodika, kuidas monitoorida AI-agentide tegevust Git-põhistes töövoogudes. Koosta \"AI-agentide turvalisuse ja koostöö juhend\".\n*   **Kas seda saab odavalt testida?** Jah. Alusta konsultatsiooniteenusena: paku olemasolevatele klientidele auditit nende praeguste AI-tööriistade kasutamise kohta ja koosta neile \"Agentide koostöö protokoll\".\n\n---\n\n### 5. JÄRGMISED SAMMUD\n\n1.  **Uuri GPT-6.1 Terra tehnilist dokumentatsiooni:** Hinda, milliseid uusi võimalusi see mudel pakub võrreldes eelkäijatega (API-de kaudu).\n2.  **Analüüsi Cohere'i raportit:** Loe läbi nende hoiatus avatud mudelite kohta, et mõista, millised on peamised turvaaugud, mida saaksid oma teenuses ennetada.\n3.  **Jälgi Anthropicu S-1 dokumente:** Jälgi finantsaruandeid, et mõista, millistele turgudele ja tehnoloogiatele Anthropic oma fookuse suunab – see annab vihjeid järgmistest turuniššidest.",
+  "analysis": "Siin on AI Radari analüüs esitatud uudiste põhjal. Oluline märkus: kuna tegemist on värskete pealkirjade ja linkidega, põhineb analüüs nende pealkirjade kontekstuaalsel tõlgendamisel ja tööstuse üldistel suundumustel.\n\n---\n\n### 1. TÄHTSAMAD AI-UUDISED\n\n1.  **GPT-6.1 Terra:** OpenAI uus mudeliversioon viitab hüppelisele arengule arvutusvõimsuses või andmetöötluse mastaabis (\"Terra\" võib viidata teraskaalale). See tähendab tõenäoliselt veelgi täpsemat arutlusvõimet ja suuremat kontekstiakent.\n2.  **Anthropic S-1:** Viide SEC-i (USA väärtpaberijärelevalve) dokumendile viitab Anthropicu võimalikule avalikule noteerimisele või suurele finantsstruktuurilisele muutusele. See on märk AI-sektori küpsemisest ja kapitali liikumisest börsile.\n3.  **Cohere’i hoiatus avatud mudelite kohta:** See viitab kasvavale turvalisuse ja eetika debatile. Avatud mudelite (open-weight) \"murettekitav käitumine\" võib tähendada uusi regulatsioone või vajadust paremate turvakihtide järele.\n4.  **The Git Forge for Agent-Human Collaboration:** See uudis keskendub AI-agentide ja inimeste koostööle tarkvaraarenduses. See viitab arendusprotsesside fundamentaalsele muutumisele, kus AI ei ole enam lihtsalt assistent, vaid aktiivne koodikirjutaja.\n\n---\n\n### 2. OLULISEMAD AI-TRENDID\n\n*   **Agentide ajastu:** AI liigub \"vestlusrobotitest\" \"aktiivsete agentideni\", mis suudavad iseseisvalt projekte hallata ja koodi kompileerida.\n*   **Finantsiline küpsemine:** AI-ettevõtted liiguvad idufirmade faasist börsiettevõtete faasi, mis toob kaasa suurema läbipaistvuse ja regulatiivse kontrolli.\n*   **Turvalisus kui konkurentsieelis:** Kuna avatud mudelid tekitavad riske, muutuvad turvalised ja kontrollitud (suletud või hästi auditeeritud) AI-lahendused ettevõtete jaoks eelistatumaks.\n\n---\n\n### 3. ÄRIVÕIMALUSED\n\n1.  **AI-Agentide integreerimise agentuur:** Ettevõtete aitamine \"Git Forge\" tüüpi tööriistade juurutamisel, et automatiseerida tarkvaraarenduse tsükleid.\n2.  **AI-turvalisuse audititeenus:** Ettevõtete nõustamine, kuidas kasutada avatud mudeleid turvaliselt, maandades Cohere’i viidatud riske.\n3.  **Spetsialiseeritud AI-koolitusplatvorm:** Platvorm, mis õpetab meeskondi töötama koos uue põlvkonna mudelitega (nagu GPT-6.1 Terra), keskendudes \"prompt engineeringu\" asemel \"agentide juhtimisele\".\n\n---\n\n### 4. PARIM IDEE: AI-Agentide integreerimise agentuur\n\n**Miks see on hea?**\nTarkvaraarendus on kallis ja aeglane. Kui ettevõte saab AI-agendi abil vähendada koodi kirjutamisele ja testimisele kuluvat aega 50%, on selle äriline väärtus tohutu.\n\n**Kellele seda müüa?**\nKeskmise suurusega tarkvaraarendusettevõtetele (software houses) ja IT-osakondadele, kes soovivad tõsta arendajate produktiivsust ilma meeskonda suurendamata.\n\n**Kuidas alustada?**\nVali üks konkreetne töövoog (nt testimine või dokumentatsiooni koostamine) ja loo selle jaoks \"agentide töövoog\", kasutades olemasolevaid platvorme.\n\n**Kas seda saab odavalt testida?**\nJah. Alusta pilootprojektiga ühe kliendi juures, kasutades olemasolevaid API-sid ja tööriistu. Investeering on peamiselt sinu aeg ja testimise kulud.\n\n---\n\n### 5. JÄRGMISED SAMMUD\n\n1.  **Uuri \"Git Forge\" kontseptsiooni:** Analüüsi, millised on praegused parimad tööriistad AI-agentide ja inimeste koostööks (nt Cursor, GitHub Copilot Workspace).\n2.  **Kaardista riskid:** Loe läbi Cohere’i blogipostitus ja koosta nimekiri \"turvalisuse kontrollpunktidest\", mida oma klientidele pakkuda.\n3.  **Vali nišš:** Ära püüa kõike automatiseerida. Vali üks konkreetne tehnoloogia (nt Pythoni arendus) ja spetsialiseeru sellele, kuidas GPT-6.1 tasemel mudelid seda kiirendavad.",
   "news": [
     {
       "title": "GPT-6.1 Terra",
       "link": "https://openai.com/index/introducing-gpt-6-1-terra/",
-      "summary": "GPT-6.1 Terra on uus tehisintellekti mudel."
-    },
-    {
-      "title": "Anthropic S-1",
-      "link": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
-      "summary": "Anthropic S-1 on uus tehisintellekti mudel."
-    },
-    {
-      "title": "Concerning behavior from a popular open-weight AI model",
-      "link": "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model",
-      "summary": "Populaarse avatud kaaludega tehisintellekti mudeli puhul on täheldatud murettekitavat käitumist."
-    },
-    {
-      "title": "The Git Forge for Agent-Human Collaboration",
-      "link": "https://entire.com/blog/the-git-forge-for-agent-human-collaboration",
-      "summary": "Git Forge on platvorm, mis on mõeldud agentide ja inimeste koostööks."
+      "summary_et": "GPT-6.1 Terra on uus tehisintellekti mudel."
     },
     {
       "title": "GPT 6.1 Terra",
       "link": "https://developers.openai.com/api/docs/models/gpt-6.1-terra",
-      "summary": "GPT 6.1 Terra on tehisintellekti mudel."
+      "image": "https://developers.openai.com/og/api/docs/models/gpt-6.1-terra.png",
+      "summary_et": "GPT 6.1 Terra on tehisintellekti mudel."
+    },
+    {
+      "title": "Anthropic S-1",
+      "link": "https://www.sec.gov/Archives/edgar/data/2130357/000162828026067168/anthropicpbc-sx1.htm",
+      "summary_et": "Anthropic S-1 on uus tehisintellekti mudel."
+    },
+    {
+      "title": "Concerning behavior from a popular open-weight AI model",
+      "link": "https://cohere.com/blog/concerning-behaviour-popular-open-weight-ai-model",
+      "image": "https://cdn.sanity.io/images/rjtqmwfu/web3-prod/b966213f9f46bb9cec6ec5a3406e893530b8b292-1200x630.png?w=1200&h=630&q=80&fit=crop&auto=format",
+      "summary": "Discover how untrusted open-weight AI models can potentially leak data, even when self-hosted. Learn the security risks and how to protect your enterprise.",
+      "summary_et": "Populaarsed avatud kaaludega tehisintellekti mudelid võivad andmeid lekkida, isegi kui neid ise majutatakse. Oluline on mõista turvariske ja kaitsta oma ettevõtet."
+    },
+    {
+      "title": "The Git Forge for Agent-Human Collaboration",
+      "link": "https://entire.com/blog/the-git-forge-for-agent-human-collaboration",
+      "image": "https://entire.com/blog/the-git-forge-for-agent-human-collaboration/og.jpg?v=13",
+      "summary": "Source control is at a breaking point. Today, we open the portal to a new kind of Git forge: reimagined review, CI integrations, code hosting, and continuous memory for every agent. Welcome to the rebellion.",
+      "summary_et": "Uus Git-platvorm on loodud agentide ja inimeste koostööks. See pakub uuenduslikke lahendusi koodi haldamiseks ja pidevaks mäluks."
     }
   ],
   "date": "2026-10-26"
