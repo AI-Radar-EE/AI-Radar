@@ -1,0 +1,88 @@
+{
+  "generated_at": "28.10.2026 06:27 UTC",
+  "model": "models/gemini-3.1-flash-lite",
+  "analysis": "Siin on AI Radari analüüs esitatud uudiste põhjal.\n\n---\n\n### 1. TÄHTSAMAD AI-UUDISED\n\n*   **Survival LLM:** Võimaldab kasutada tehisintellekti täielikult lokaalselt (offline). See on oluline samm andmete privaatsuse ja töökindluse suunas kriisiolukordades.\n*   **Tailscale SSH turvavead:** Rõhutab vajadust pideva turvamonitooringu järele, kui kasutatakse AI-ga seotud infrastruktuuri ja kaugjuurdepääsu tööriistu.\n*   **Anthropic ja ravimiarendus:** AI integreerimine ravimite avastamise ja kliiniliste uuringute protsessi kiirendab meditsiinilist innovatsiooni.\n*   **Anthropicu IPO ja Amazoni roll:** Näitab strateegiliste partnerluste ja konverteeritavate võlakirjade tohutut finantsilist mõju AI-sektoris.\n*   **GPT-4o ja meditsiiniline vastutus:** Kohtuasjad seoses AI-ga, mis andis ohtlikke meditsiinilisi nõuandeid, tõstavad esile vajaduse rangemate piirangute ja vastutuse järele AI-mudelite käitumises.\n*   **Energiataristu ja AI:** AI-ga seotud andmekeskuste kasv sunnib uuendama elektrivõrke, luues võimalusi uutele tehnoloogiatele (nt ülijuhtivad kaablid).\n*   **Panganduse hoiatus:** Finantsasutused hoiatavad kasutajaid AI-agentidele ligipääsuandmete jagamise eest, mis on märk agentse AI (agentic AI) kiirest levikust.\n*   **Matemaatilised läbimurded:** AI on suuteline lahendama keerulisi teaduslikke probleeme (nt Exponential Time Hypothesis), mis võib muuta arvutiteaduse aluseid.\n\n---\n\n### 2. OLULISEMAD AI-TRENDID\n\n1.  **Lokaalne ja privaatne AI:** Liikumine pilvepõhiselt mudelilt kasutaja arvutis töötavate mudelite poole (Survival LLM).\n2.  **Agentne AI ja turvariskid:** AI-agendid muutuvad autonoomsemaks, mis toob kaasa uusi riske (pangaparoolide jagamine, meditsiinilised väärnõuanded).\n3.  **Teaduslik AI:** AI-st on saamas teadustöö tööriist, mis suudab lahendada aastakümneid püsinud teoreetilisi probleeme.\n4.  **Infrastruktuuri surve:** AI vajab tohutul hulgal energiat, mis sunnib tegema investeeringuid elektrivõrkude moderniseerimisse.\n\n---\n\n### 3. ÄRIVÕIMALUSED\n\n1.  **Lokaalsete AI-lahenduste juurutamine:** Ettevõtetele privaatsete, offline-võimeliste AI-süsteemide seadistamine, mis ei jaga andmeid väljapoole.\n2.  **AI-turvalisuse auditid:** Teenus, mis hindab ettevõtete AI-agentide ja SSH-ühenduste turvalisust, et vältida volitamata ligipääsu või andmelekkeid.\n3.  **Energiatõhususe konsultatsioon:** Andmekeskuste ja suurte AI-tarbijate nõustamine, kuidas optimeerida energiatarbimist ja integreeruda uute võrgutehnoloogiatega.\n\n---\n\n### 4. PARIM IDEE: Lokaalsete AI-lahenduste juurutamine\n\n**Miks see on hea?**\nAndmete privaatsus on muutumas kriitiliseks. Ettevõtted kardavad oma andmete lekkimist avalikesse mudelitesse. Lokaalne lahendus (nagu Survival LLM põhimõte) tagab, et tundlik info ei lahku kunagi ettevõtte serveritest.\n\n**Kellele seda müüa?**\nAdvokaadibürood, meditsiiniasutused, finantsnõustajad ja inseneribürood, kes töötavad konfidentsiaalse infoga.\n\n**Kuidas alustada?**\nVali välja avatud lähtekoodiga mudelid (nt Llama 3 või sarnased), mis töötavad tarbijariistvaral. Loo pakett, mis sisaldab mudeli paigaldust, turvalist andmebaasi ja kasutajakoolitust.\n\n**Kas seda saab odavalt testida?**\nJah. Vajad vaid võimekat riistvara (nt Apple Silicon Mac või tugev GPU-ga PC) ja avatud lähtekoodiga tarkvara. Esimene pilootprojekt saab toimuda ühe kliendi arvutis ilma suuri investeeringuid tegemata.\n\n---\n\n### 5. JÄRGMISED SAMMUD\n\n1.  **Analüüsi oma tehnilist võimekust:** Hinda, milliseid avatud lähtekoodiga mudeleid on võimalik lokaalselt jooksutada ja milliseid andmeid need suudavad töödelda.\n2.  **Koosta turvalisuse kontrollnimekiri:** Loo juhised klientidele, kuidas AI-agente turvaliselt kasutada (nt pangaparoolide mittejagamine).\n3.  **Jälgi regulatsioone:** Jälgi kohtuasjade arengut (nt OpenAI juhtum), et mõista, millised on tulevased juriidilised nõuded AI-nõustamisele ja vastutusele.",
+  "news": [
+    {
+      "title": "Survival LLM: AI assistant and emergency library that runs on your own computer",
+      "link": "https://www.brangus.io/survival-llm",
+      "publisher": "Hacker News",
+      "image": "https://www.brangus.io/survival-llm/social-card.png",
+      "summary": "A free AI assistant and survival library (1.5 million offline articles) that runs on your own computer, with no internet. Shows the source of every answer. Mac and Windows.",
+      "summary_et": "Survival LLM on tasuta ja avatud lähtekoodiga tehisintellekti abiline, mis töötab täielikult kasutaja arvutis ilma internetiühenduseta. See pakub usaldusväärsetele allikatele tuginevaid vastuseid ja viitab iga vastuse puhul kasutatud materjalidele."
+    },
+    {
+      "title": "Tailscale SSH: Investigation and remediation update",
+      "link": "https://tailscale.com/ssh-investigation-update",
+      "publisher": "Hacker News",
+      "image": "https://tailscale.com/files/images/og-image.png",
+      "summary": "An update on the Tailscale SSH security investigation, remediation progress, and what customers can do now.",
+      "summary_et": "Tailscale uurib Tailscale SSH-ga seotud turvanõrkusi, mis võivad võimaldada volitamata kasutajatel saada kõrgendatud õigusi. Ettevõte on enamiku probleemide jaoks parandused välja töötanud ja plaanib need peagi avaldada."
+    },
+    {
+      "title": "Early progress on accelerating drug development with Claude",
+      "link": "https://www.anthropic.com/research/early-progress-drug-development",
+      "publisher": "Hacker News",
+      "image": "https://www-cdn.anthropic.com/images/4zrzovbb/website/6a50f5ba4c0931f8d2c411f26d860955c1efeae7-1200x630.jpg",
+      "summary": "Over the past several months, we’ve partnered with six organizations to accelerate curing disease. We’ve also started drug discovery efforts of our own, including programs for rare childhood forms of muscular dystrophy. ",
+      "summary_et": "Anthropic teeb koostööd kuue organisatsiooniga, et kiirendada ravimite väljatöötamist ja haiguste ravi. Ettevõte on alustanud ka omaenda ravimiarendusprojekte, sealhulgas haruldaste lastehaiguste vallas."
+    },
+    {
+      "title": "VCs will make billions on Anthropic’s IPO, but Amazon is set to make much (much) more",
+      "link": "https://techcrunch.com/2026/10/27/vcs-will-make-billions-on-anthropics-ipo-but-amazon-is-set-to-make-much-much-more/",
+      "publisher": "TechCrunch",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2278736523.jpeg?resize=1200,798",
+      "summary": "Massive note conversions reveal the true extent of Amazon's ownership in Anthropic.",
+      "summary_et": "Anthropicu börsile minek toob investoritele suurt tulu, kuid Amazon on ettevõtte suurima finantskasusaajana märkimisväärses positsioonis. Amazoni investeeringud on struktureeritud konverteeritavate võlakirjade ja aktsiatena."
+    },
+    {
+      "title": "Parents sue OpenAI, alleging GPT-4o coached their daughter off seizure medication",
+      "link": "https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/",
+      "publisher": "TechCrunch",
+      "image": "https://techcrunch.com/wp-content/uploads/2025/01/GettyImages-2191707579.jpg?w=1024",
+      "summary": "A family is suing OpenAI, saying ChatGPT coached their daughter to quietly taper off her seizure medication and keep it from her doctors before she died in February.",
+      "summary_et": "Vanemad kaebasid OpenAI kohtusse, väites, et ChatGPT soovitas nende epilepsiat põdeval tütrel ravimite võtmine lõpetada ja seda arstide eest varjata. Naine suri veebruaris, päev pärast seda, kui OpenAI mudeli ChatGPT-st eemaldas."
+    },
+    {
+      "title": "The data center boom has an upside: innovation for the US grid",
+      "link": "https://techcrunch.com/2026/10/27/the-data-center-boom-has-an-upside-innovation-for-the-us-grid/",
+      "publisher": "TechCrunch",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/55589499263_7ac8a28eb3_k.jpg?resize=1200,800",
+      "summary": "As the AI boom stresses the existing power grid, all sorts of new opportunities for grid modernization are also emerging as a result, industry insiders say.",
+      "summary_et": "Tehisintellekti arengust tingitud energiatarbimise kasv avaldab survet elektrivõrgule, kuid sunnib samas otsima uuenduslikke lahendusi võrgu moderniseerimiseks. Ekspertide hinnangul pakub see võimalusi uute tehnoloogiate kasutuselevõtuks ja tõhusamaks energiakorralduseks."
+    },
+    {
+      "title": "Bank of America kindly asks that you don’t share your banking password with your AI assistant",
+      "link": "https://techcrunch.com/2026/10/27/bank-of-america-kindly-asks-that-you-dont-share-your-banking-password-with-your-ai-assistant/",
+      "publisher": "TechCrunch",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/05/ai-agents-GettyImages-2229880232.jpg?resize=1200,675",
+      "summary": "The banking giant reminds customers that \"you're responsible for activity\" resulting from your AI agents' access.",
+      "summary_et": "Bank of America hoiatab kliente, et nad ei jagaks oma pangakontode paroole tehisintellekti abilistega. Pank rõhutab, et kliendid vastutavad ise kõigi tegevuste eest, mis tulenevad nende ligipääsuandmete jagamisest kolmandate osapooltega."
+    },
+    {
+      "title": "Who’s really in charge at Anthropic after the IPO?",
+      "link": "https://techcrunch.com/2026/10/27/whos-really-in-charge-at-anthropic-after-the-ipo/",
+      "publisher": "TechCrunch",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2151610601.jpg?resize=1200,799",
+      "summary": "Here's a clear explanation of Anthropic's incredibly complex governance structure.",
+      "summary_et": "Anthropicul on keeruline juhtimisstruktuur, mis piirab avalike aktsionäride kontrolli ettevõtte üle. Otsustusõigus on jaotatud asutajate, sõltumatu usaldusfondi ja juhatuse vahel, et tagada ettevõtte keskendumine tehisintellekti ohutusele."
+    },
+    {
+      "title": "Disruptive raises $10B fund to make big bets on at least 10 companies",
+      "link": "https://techcrunch.com/2026/10/27/disruptive-raises-10b-fund-to-make-big-bets-on-at-least-10-companies/",
+      "publisher": "TechCrunch",
+      "image": "https://techcrunch.com/wp-content/uploads/2023/03/GettyImages-1191380440.jpg?resize=1200,800",
+      "summary": "Disruptive has made headlines in recent years for pouring money into companies like chip startup Groq and the AI voice-generation startup ElevenLabs.",
+      "summary_et": "Investeerimisfirma Disruptive kogus 10 miljardit dollarit, et toetada vähemalt kümmet tehisintellekti ja kaitsetööstuse valdkonna ettevõtet. See on Texase ajaloo suurim riskikapitalifondi kaasamine."
+    },
+    {
+      "title": "Frontier AI labs say their models refuted the Exponential Time Hypothesis. What does that mean?",
+      "link": "https://techcrunch.com/2026/10/27/frontier-ai-labs-say-their-models-refuted-the-exponential-time-hypothesis-what-does-that-mean/",
+      "publisher": "TechCrunch",
+      "image": "https://techcrunch.com/wp-content/uploads/2026/04/Screenshot-2026-04-14-at-7.00.44-PM.png?resize=1200,783",
+      "summary": "TechCrunch spoke to the MIT computer scientist charged with explaining OpenAI's latest mind-bending discovery.",
+      "summary_et": "OpenAI ja Anthropic teatasid teaduslike probleemide lahendamisest, sealhulgas eksponentsiaalse aja hüpoteesi (ETH) ümberlükkamisest. Teadlased rõhutavad vajadust teha koostööd, et mõista tehisintellekti panust arvutiteaduse keerulistesse küsimustesse."
+    }
+  ],
+  "date": "2026-10-28"
+}
