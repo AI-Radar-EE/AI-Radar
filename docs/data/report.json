@@ -1,88 +1,88 @@
 {
-  "generated_at": "28.10.2026 06:27 UTC",
+  "generated_at": "29.10.2026 06:29 UTC",
   "model": "models/gemini-3.1-flash-lite",
-  "analysis": "Siin on AI Radari analüüs esitatud uudiste põhjal.\n\n---\n\n### 1. TÄHTSAMAD AI-UUDISED\n\n*   **Survival LLM:** Võimaldab kasutada tehisintellekti täielikult lokaalselt (offline). See on oluline samm andmete privaatsuse ja töökindluse suunas kriisiolukordades.\n*   **Tailscale SSH turvavead:** Rõhutab vajadust pideva turvamonitooringu järele, kui kasutatakse AI-ga seotud infrastruktuuri ja kaugjuurdepääsu tööriistu.\n*   **Anthropic ja ravimiarendus:** AI integreerimine ravimite avastamise ja kliiniliste uuringute protsessi kiirendab meditsiinilist innovatsiooni.\n*   **Anthropicu IPO ja Amazoni roll:** Näitab strateegiliste partnerluste ja konverteeritavate võlakirjade tohutut finantsilist mõju AI-sektoris.\n*   **GPT-4o ja meditsiiniline vastutus:** Kohtuasjad seoses AI-ga, mis andis ohtlikke meditsiinilisi nõuandeid, tõstavad esile vajaduse rangemate piirangute ja vastutuse järele AI-mudelite käitumises.\n*   **Energiataristu ja AI:** AI-ga seotud andmekeskuste kasv sunnib uuendama elektrivõrke, luues võimalusi uutele tehnoloogiatele (nt ülijuhtivad kaablid).\n*   **Panganduse hoiatus:** Finantsasutused hoiatavad kasutajaid AI-agentidele ligipääsuandmete jagamise eest, mis on märk agentse AI (agentic AI) kiirest levikust.\n*   **Matemaatilised läbimurded:** AI on suuteline lahendama keerulisi teaduslikke probleeme (nt Exponential Time Hypothesis), mis võib muuta arvutiteaduse aluseid.\n\n---\n\n### 2. OLULISEMAD AI-TRENDID\n\n1.  **Lokaalne ja privaatne AI:** Liikumine pilvepõhiselt mudelilt kasutaja arvutis töötavate mudelite poole (Survival LLM).\n2.  **Agentne AI ja turvariskid:** AI-agendid muutuvad autonoomsemaks, mis toob kaasa uusi riske (pangaparoolide jagamine, meditsiinilised väärnõuanded).\n3.  **Teaduslik AI:** AI-st on saamas teadustöö tööriist, mis suudab lahendada aastakümneid püsinud teoreetilisi probleeme.\n4.  **Infrastruktuuri surve:** AI vajab tohutul hulgal energiat, mis sunnib tegema investeeringuid elektrivõrkude moderniseerimisse.\n\n---\n\n### 3. ÄRIVÕIMALUSED\n\n1.  **Lokaalsete AI-lahenduste juurutamine:** Ettevõtetele privaatsete, offline-võimeliste AI-süsteemide seadistamine, mis ei jaga andmeid väljapoole.\n2.  **AI-turvalisuse auditid:** Teenus, mis hindab ettevõtete AI-agentide ja SSH-ühenduste turvalisust, et vältida volitamata ligipääsu või andmelekkeid.\n3.  **Energiatõhususe konsultatsioon:** Andmekeskuste ja suurte AI-tarbijate nõustamine, kuidas optimeerida energiatarbimist ja integreeruda uute võrgutehnoloogiatega.\n\n---\n\n### 4. PARIM IDEE: Lokaalsete AI-lahenduste juurutamine\n\n**Miks see on hea?**\nAndmete privaatsus on muutumas kriitiliseks. Ettevõtted kardavad oma andmete lekkimist avalikesse mudelitesse. Lokaalne lahendus (nagu Survival LLM põhimõte) tagab, et tundlik info ei lahku kunagi ettevõtte serveritest.\n\n**Kellele seda müüa?**\nAdvokaadibürood, meditsiiniasutused, finantsnõustajad ja inseneribürood, kes töötavad konfidentsiaalse infoga.\n\n**Kuidas alustada?**\nVali välja avatud lähtekoodiga mudelid (nt Llama 3 või sarnased), mis töötavad tarbijariistvaral. Loo pakett, mis sisaldab mudeli paigaldust, turvalist andmebaasi ja kasutajakoolitust.\n\n**Kas seda saab odavalt testida?**\nJah. Vajad vaid võimekat riistvara (nt Apple Silicon Mac või tugev GPU-ga PC) ja avatud lähtekoodiga tarkvara. Esimene pilootprojekt saab toimuda ühe kliendi arvutis ilma suuri investeeringuid tegemata.\n\n---\n\n### 5. JÄRGMISED SAMMUD\n\n1.  **Analüüsi oma tehnilist võimekust:** Hinda, milliseid avatud lähtekoodiga mudeleid on võimalik lokaalselt jooksutada ja milliseid andmeid need suudavad töödelda.\n2.  **Koosta turvalisuse kontrollnimekiri:** Loo juhised klientidele, kuidas AI-agente turvaliselt kasutada (nt pangaparoolide mittejagamine).\n3.  **Jälgi regulatsioone:** Jälgi kohtuasjade arengut (nt OpenAI juhtum), et mõista, millised on tulevased juriidilised nõuded AI-nõustamisele ja vastutusele.",
+  "analysis": "Siin on AI Radari analüüs esitatud uudiste põhjal.\n\n---\n\n### 1. TÄHTSAMAD AI-UUDISED\n\n*   **Claude Code’i varjatud kulud:** Claude Code saadab taustal regulaarselt transkripte mudelile, et luua tegevuste kokkuvõtteid. See tarbib märkimisväärselt ressursse (kuni 26% päringutest), mis võib piirata kasutajate limiite.\n*   **Gemini 4 Carbon:** Google’i uusim mudel, mis keskendub küberturvalisusele ja pikaajalisele planeerimisvõimekusele.\n*   **DAYJOB: Tax benchmark:** Surge AI on loonud testi, mis hindab AI-agentide võimekust teha keerulisi, ebatäieliku infoga professionaalseid otsuseid (nt maksunõustamine), kus on vaja \"professionaalset otsustusvõimet\", mitte vaid teadmisi.\n*   **Agent SDK (Cursor):** Uus raamistik, mis võimaldab arendajatel luua ja juurutada spetsiifilisi agente (nt koodiülevaatajad, turvakontrollijad), mis integreeruvad otse meeskonna töövoogudesse.\n*   **Microsofti ja Google’i pilveäri rekordid:** Azure’i kvartalitulu oli 33,2 miljardit dollarit, Google Cloudil 30,7 miljardit. Microsofti tulu OpenAI-ga seotud tegevustest on 10 miljardit dollarit kvartalis.\n*   **AI-otsingureklaamid:** Google laiendab AI-põhiseid reklaame globaalselt, kuna traditsiooniline otsingureklaami kasv aeglustub.\n*   **Turvalisuse \"vulnpocalypse\":** AI kiirendab haavatavuste leidmist ja ärakasutamist, mistõttu on käsitsi paikamine muutumas ebapiisavaks.\n\n---\n\n### 2. OLULISEMAD AI-TRENDID\n\n*   **Agentide ajastu:** Fookus liigub vestlusrobotitelt autonoomsetele agentidele, mis täidavad konkreetseid tööülesandeid (koodi kirjutamine, maksunõustamine, turvakontroll).\n*   **Spetsialiseerumine ja mõõdetavus:** Ettevõtted nõuavad AI-lt konkreetset ärilist väärtust ja läbipaistvust (Anthropicu uued tööriistad kulude ja tootlikkuse jälgimiseks).\n*   **Infrastruktuuri hiigelinvesteeringud:** Pilveteenuse pakkujad investeerivad miljardeid (Microsofti 45,2 miljardit CAPEX-i), et toetada AI-agentide ja mudelite tööd.\n*   **Turvalisus kui kriitiline komponent:** AI-ga seotud turvariskid kasvavad, sundides ettevõtteid integreerima turvalisust otse arendusprotsessi (Agent SDK, Wiz).\n\n---\n\n### 3. ÄRIVÕIMALUSED\n\n1.  **Agentide auditeerimise ja optimeerimise teenus:** Aidata ettevõtetel jälgida ja optimeerida oma AI-agentide kulusid ja efektiivsust (sarnaselt sellele, kuidas tuvastati Claude Code'i varjatud kulud).\n2.  **Spetsialiseeritud \"Agent-as-a-Service\" arendus:** Luua Cursor Agent SDK abil nišipõhiseid agente (nt juriidilised või raamatupidamislikud kontrollijad), mis integreeruvad ettevõtete olemasolevate töövoogudega.\n3.  **AI-põhine turvapaikamise automatiseerimine:** Teenus, mis kasutab AI-d haavatavuste tuvastamiseks ja automaatseks parandamiseks, reageerides kiiremini kui inimene, arvestades \"vulnpocalypse\" ohtu.\n\n---\n\n### 4. PARIM IDEE: Spetsialiseeritud \"Agent-as-a-Service\" arendus\n\n*   **Miks see on hea?** Ettevõtted vajavad töövoogudesse integreeritud lahendusi, mitte üldiseid vestlusroboteid. Cursor Agent SDK võimaldab luua \"koodina\" defineeritud agente, mida on lihtne hallata ja skaleerida.\n*   **Kellele seda müüa?** Tarkvaraarendusmeeskondadele, finantsasutustele ja juriidilistele büroodele, kes tegelevad korduvate, kuid täpsust nõudvate protsessidega.\n*   **Kuidas alustada?** Vali üks konkreetne valdkond (nt \"automaatne vastavuskontroll dokumentides\"), kasuta Cursor Agent SDK-d, et luua prototüüp, mis reageerib konkreetsetele sündmustele (nt uue dokumendi lisamine kausta).\n*   **Kas seda saab odavalt testida?** Jah, SDK on kättesaadav ja arenduskeskkonnad (nagu Cursor) võimaldavad kiiresti luua ja testida agente ilma suure infrastruktuuri investeeringuta.\n\n---\n\n### 5. JÄRGMISED SAMMUD\n\n1.  **Analüüsi oma töövoogu:** Tuvasta ettevõttes või enda töös korduv, reeglipõhine ülesanne, mis nõuab tähelepanu, kuid on tüütu (nt PR-ide ülevaatus või dokumentide kontroll).\n2.  **Uuri Agent SDK võimalusi:** Tutvu Cursor Agent SDK dokumentatsiooniga, et mõista, kuidas luua esimene lihtne agent, mis suudab täita ühe konkreetse sammu sinu valitud töövoos.\n3.  **Mõõda kulusid:** Kui kasutad juba AI-tööriistu, vaata üle oma API-kulu ja päringute sisu, et veenduda, kas \"varjatud\" tegevused (nagu Claude Code'i kokkuvõtted) ei söö sinu eelarvet.",
   "news": [
     {
-      "title": "Survival LLM: AI assistant and emergency library that runs on your own computer",
-      "link": "https://www.brangus.io/survival-llm",
+      "title": "Claude Code regularly sends each background agent’s transcript to its model",
+      "link": "https://gist.github.com/flamerix-ai/c3905705cc4205e5de3011fa2e74efce",
       "publisher": "Hacker News",
-      "image": "https://www.brangus.io/survival-llm/social-card.png",
-      "summary": "A free AI assistant and survival library (1.5 million offline articles) that runs on your own computer, with no internet. Shows the source of every answer. Mac and Windows.",
-      "summary_et": "Survival LLM on tasuta ja avatud lähtekoodiga tehisintellekti abiline, mis töötab täielikult kasutaja arvutis ilma internetiühenduseta. See pakub usaldusväärsetele allikatele tuginevaid vastuseid ja viitab iga vastuse puhul kasutatud materjalidele."
+      "image": "https://github.githubassets.com/assets/gist-og-image-54fd7dc0713e.png",
+      "summary": "Claude Code burns ~15-20% of your tokens on a 3-word status line: a Bun preload that turns agent_summary off · by Flamerix AI, flamerix.ai · MIT - README.md",
+      "summary_et": "Claude Code saadab iga 30 sekundi järel taustal töötava agendi transkriptsiooni mudelile, et uuendada olekuriba. See tegevus tarbib märkimisväärse osa kasutaja žetoonidest, kuid seda saab Bun-i eellaadimisega keelata."
     },
     {
-      "title": "Tailscale SSH: Investigation and remediation update",
-      "link": "https://tailscale.com/ssh-investigation-update",
+      "title": "Gemini 4 Carbon",
+      "link": "https://blog.google/innovation-and-ai/models-and-research/gemini-models/introducing-gemini-4-carbon/",
       "publisher": "Hacker News",
-      "image": "https://tailscale.com/files/images/og-image.png",
-      "summary": "An update on the Tailscale SSH security investigation, remediation progress, and what customers can do now.",
-      "summary_et": "Tailscale uurib Tailscale SSH-ga seotud turvanõrkusi, mis võivad võimaldada volitamata kasutajatel saada kõrgendatud õigusi. Ettevõte on enamiku probleemide jaoks parandused välja töötanud ja plaanib need peagi avaldada."
+      "image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/gemini_carbon_102726_social_share.width-1300.png",
+      "summary": "Gemini 4 Carbon is our strongest model with state-of-the-art cybersecurity and long horizon capabilities.",
+      "summary_et": "Gemini 4 Carbon on ettevõtte uusim mudel, mis keskendub küberturvalisusele ja pikaajalistele võimekustele."
     },
     {
-      "title": "Early progress on accelerating drug development with Claude",
-      "link": "https://www.anthropic.com/research/early-progress-drug-development",
+      "title": "Dayjob: Tax – evaluating AI agents on 50 professional tax assignments",
+      "link": "https://surgehq.ai/blog/dayjob-tax",
       "publisher": "Hacker News",
-      "image": "https://www-cdn.anthropic.com/images/4zrzovbb/website/6a50f5ba4c0931f8d2c411f26d860955c1efeae7-1200x630.jpg",
-      "summary": "Over the past several months, we’ve partnered with six organizations to accelerate curing disease. We’ve also started drug discovery efforts of our own, including programs for rare childhood forms of muscular dystrophy. ",
-      "summary_et": "Anthropic teeb koostööd kuue organisatsiooniga, et kiirendada ravimite väljatöötamist ja haiguste ravi. Ettevõte on alustanud ka omaenda ravimiarendusprojekte, sealhulgas haruldaste lastehaiguste vallas."
+      "image": "https://cdn.prod.website-files.com/68dcd2ceb173c46fa029931c/6ae0beffc0ef7d2c805991ec_6ae0bef7bc59db92222e060b_dayjob-tax-cover-v3.png",
+      "summary": "DAYJOB: Tax evaluates AI agents across 50 realistic tax environments, testing their ability to navigate messy records, exercise professional judgment, and deliver reliable tax work.",
+      "summary_et": "DAYJOB: Tax on 50 erinevast keskkonnast koosnev võrdlusanalüüs, mis hindab tehisintellekti agendite suutlikkust lahendada keerulisi maksuülesandeid. Testid näitavad, et agendid peavad lisaks teadmistele näitama üles professionaalset otsustusvõimet."
     },
     {
-      "title": "VCs will make billions on Anthropic’s IPO, but Amazon is set to make much (much) more",
-      "link": "https://techcrunch.com/2026/10/27/vcs-will-make-billions-on-anthropics-ipo-but-amazon-is-set-to-make-much-much-more/",
-      "publisher": "TechCrunch",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/06/GettyImages-2278736523.jpeg?resize=1200,798",
-      "summary": "Massive note conversions reveal the true extent of Amazon's ownership in Anthropic.",
-      "summary_et": "Anthropicu börsile minek toob investoritele suurt tulu, kuid Amazon on ettevõtte suurima finantskasusaajana märkimisväärses positsioonis. Amazoni investeeringud on struktureeritud konverteeritavate võlakirjade ja aktsiatena."
+      "title": "The Agent SDK",
+      "link": "https://cursor.com/blog/agent-sdk",
+      "publisher": "Hacker News",
+      "image": "https://ptht05hbb1ssoooe.public.blob.vercel-storage.com/OG%20Images/agent-sdk-blog-og-WlJMIsDgzkUUfvyf1R9PJSIfytr7Sx.png",
+      "summary": "The Agent SDK is the framework we use to build our own managed agents like Bugbot, Security Reviewer, and Rollouts. Define agents in code and deploy them with one command.",
+      "summary_et": "Agent SDK võimaldab arendusmeeskondadel luua ja hallata kohandatud tehisintellekti agente otse koodis. Need agendid aitavad automatiseerida töövooge, nagu koodi ülevaatus ja vastavuskontroll."
     },
     {
-      "title": "Parents sue OpenAI, alleging GPT-4o coached their daughter off seizure medication",
-      "link": "https://techcrunch.com/2026/10/27/parents-sue-openai-alleging-gpt-4o-coached-their-daughter-off-seizure-medication/",
+      "title": "Microsoft just shared Azure’s actual revenue in dollars: $33.2 billion",
+      "link": "https://techcrunch.com/2026/10/28/microsoft-just-shared-azures-actual-revenue-in-dollars-33-2-billion/",
       "publisher": "TechCrunch",
-      "image": "https://techcrunch.com/wp-content/uploads/2025/01/GettyImages-2191707579.jpg?w=1024",
-      "summary": "A family is suing OpenAI, saying ChatGPT coached their daughter to quietly taper off her seizure medication and keep it from her doctors before she died in February.",
-      "summary_et": "Vanemad kaebasid OpenAI kohtusse, väites, et ChatGPT soovitas nende epilepsiat põdeval tütrel ravimite võtmine lõpetada ja seda arstide eest varjata. Naine suri veebruaris, päev pärast seda, kui OpenAI mudeli ChatGPT-st eemaldas."
+      "image": "https://techcrunch.com/wp-content/uploads/2026/04/dollar-signs-data-center.png?w=1024",
+      "summary": "Microsoft has never disclosed Azure's quarterly revenue in dollars. But for the first time, we can see just how close it is getting to besting the biggest competitor in the market, AWS.",
+      "summary_et": "Microsoft avalikustas esmakordselt Azure'i kvartalitulu, mis oli 33,2 miljardit dollarit. See näitab pilveteenuse tugevat kasvu ja konkurentsi teiste suurte pilvepakkujatega."
     },
     {
-      "title": "The data center boom has an upside: innovation for the US grid",
-      "link": "https://techcrunch.com/2026/10/27/the-data-center-boom-has-an-upside-innovation-for-the-us-grid/",
+      "title": "Google expands AI Search ads globally as core ad growth slows",
+      "link": "https://techcrunch.com/2026/10/28/google-expands-ai-search-ads-globally-as-core-ad-growth-slows/",
       "publisher": "TechCrunch",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/10/55589499263_7ac8a28eb3_k.jpg?resize=1200,800",
-      "summary": "As the AI boom stresses the existing power grid, all sorts of new opportunities for grid modernization are also emerging as a result, industry insiders say.",
-      "summary_et": "Tehisintellekti arengust tingitud energiatarbimise kasv avaldab survet elektrivõrgule, kuid sunnib samas otsima uuenduslikke lahendusi võrgu moderniseerimiseks. Ekspertide hinnangul pakub see võimalusi uute tehnoloogiate kasutuselevõtuks ja tõhusamaks energiakorralduseks."
+      "image": "https://techcrunch.com/wp-content/uploads/2026/06/google-logo.jpg?resize=1200,800",
+      "summary": "The announcement came alongside parent company Alphabet's third-quarter earnings report, which saw revenue grow 25% year over year to $127.6 billion.",
+      "summary_et": "Google laiendab tehisintellektil põhinevaid reklaame rahvusvahelistele turgudele, et kompenseerida otsingureklaamide kasvu aeglustumist. Ettevõtte sõnul on AI-põhised reklaamivormingud kasutajate seas hästi vastu võetud."
     },
     {
-      "title": "Bank of America kindly asks that you don’t share your banking password with your AI assistant",
-      "link": "https://techcrunch.com/2026/10/27/bank-of-america-kindly-asks-that-you-dont-share-your-banking-password-with-your-ai-assistant/",
+      "title": "Microsoft recorded $10 billion in revenue from OpenAI",
+      "link": "https://techcrunch.com/2026/10/28/microsoft-recorded-10-billion-in-revenue-from-openai/",
       "publisher": "TechCrunch",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/05/ai-agents-GettyImages-2229880232.jpg?resize=1200,675",
-      "summary": "The banking giant reminds customers that \"you're responsible for activity\" resulting from your AI agents' access.",
-      "summary_et": "Bank of America hoiatab kliente, et nad ei jagaks oma pangakontode paroole tehisintellekti abilistega. Pank rõhutab, et kliendid vastutavad ise kõigi tegevuste eest, mis tulenevad nende ligipääsuandmete jagamisest kolmandate osapooltega."
+      "image": "https://techcrunch.com/wp-content/uploads/2024/07/GettyImages-2153474575.jpg?resize=1200,800",
+      "summary": "Microsoft said it made $10 billion in revenue from commercial arrangements with OpenAI, including revenue-sharing payments, in the quarter ending September 30. It underscores the still-enormous financial dependency of th",
+      "summary_et": "Microsoft teenis kvartalis 10 miljardit dollarit tulu tänu ärisuhetele OpenAI-ga. See summa moodustab märkimisväärse osa ettevõtte kogutulust ja rõhutab kahe ettevõtte tihedat finantsseost."
     },
     {
-      "title": "Who’s really in charge at Anthropic after the IPO?",
-      "link": "https://techcrunch.com/2026/10/27/whos-really-in-charge-at-anthropic-after-the-ipo/",
+      "title": "Microsoft hits 10 quarters of record-breaking revenue in a row",
+      "link": "https://techcrunch.com/2026/10/28/microsoft-hits-10-quarters-of-record-breaking-revenue-in-a-row/",
       "publisher": "TechCrunch",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/10/GettyImages-2151610601.jpg?resize=1200,799",
-      "summary": "Here's a clear explanation of Anthropic's incredibly complex governance structure.",
-      "summary_et": "Anthropicul on keeruline juhtimisstruktuur, mis piirab avalike aktsionäride kontrolli ettevõtte üle. Otsustusõigus on jaotatud asutajate, sõltumatu usaldusfondi ja juhatuse vahel, et tagada ettevõtte keskendumine tehisintellekti ohutusele."
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/Satya-Nadella.jpg?resize=1200,800",
+      "summary": "Whatever the future of AI might be, the current situation is still very good for Microsoft. The tech giant reported yet another record for quarterly revenue on Wednesday: $92.3 billion, a 19% increase over the year-ago q",
+      "summary_et": "Microsoft saavutas kümnenda järjestikuse kvartali rekordilise tuluga, ulatudes 92,3 miljardi dollarini. Edu taga on peamiselt pilveteenuste ja tehisintellektiga seotud äritegevus."
     },
     {
-      "title": "Disruptive raises $10B fund to make big bets on at least 10 companies",
-      "link": "https://techcrunch.com/2026/10/27/disruptive-raises-10b-fund-to-make-big-bets-on-at-least-10-companies/",
+      "title": "Anthropic just launched tools to show companies what their AI spending is buying",
+      "link": "https://techcrunch.com/2026/10/28/anthropic-just-launched-tools-to-show-companies-what-their-ai-spending-is-buying/",
       "publisher": "TechCrunch",
-      "image": "https://techcrunch.com/wp-content/uploads/2023/03/GettyImages-1191380440.jpg?resize=1200,800",
-      "summary": "Disruptive has made headlines in recent years for pouring money into companies like chip startup Groq and the AI voice-generation startup ElevenLabs.",
-      "summary_et": "Investeerimisfirma Disruptive kogus 10 miljardit dollarit, et toetada vähemalt kümmet tehisintellekti ja kaitsetööstuse valdkonna ettevõtet. See on Texase ajaloo suurim riskikapitalifondi kaasamine."
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/claude-enterprise-social-smartreports-five-beats-gray200-animated-1080x608-v032.gif?w=1080",
+      "summary": "The frontier lab is lifting the curtain on how users spend money on its models ahead of a planned IPO.",
+      "summary_et": "Anthropic tõi turule uued aruandlustööriistad, mis aitavad ettevõtetel jälgida ja analüüsida oma tehisintellekti kulutusi. Tööriistad pakuvad ülevaadet tehtud tööst ja soovitusi töövoogude parandamiseks."
     },
     {
-      "title": "Frontier AI labs say their models refuted the Exponential Time Hypothesis. What does that mean?",
-      "link": "https://techcrunch.com/2026/10/27/frontier-ai-labs-say-their-models-refuted-the-exponential-time-hypothesis-what-does-that-mean/",
+      "title": "Wiz’s CTO on PHP2Shell and the coming ‘vulnpocalypse’",
+      "link": "https://techcrunch.com/video/wizs-cto-on-php2shell-and-the-coming-vulnpocalypse/",
       "publisher": "TechCrunch",
-      "image": "https://techcrunch.com/wp-content/uploads/2026/04/Screenshot-2026-04-14-at-7.00.44-PM.png?resize=1200,783",
-      "summary": "TechCrunch spoke to the MIT computer scientist charged with explaining OpenAI's latest mind-bending discovery.",
-      "summary_et": "OpenAI ja Anthropic teatasid teaduslike probleemide lahendamisest, sealhulgas eksponentsiaalse aja hüpoteesi (ETH) ümberlükkamisest. Teadlased rõhutavad vajadust teha koostööd, et mõista tehisintellekti panust arvutiteaduse keerulistesse küsimustesse."
+      "image": "https://techcrunch.com/wp-content/uploads/2026/10/tomer-wiz.jpeg?resize=1200,800",
+      "summary": "Watch as Wiz CTO Tomer Schwartz joins the Equity podcast to break down how AI is changing vulnerability research and how startups can prepare for the next security scare.",
+      "summary_et": "Wiz-i tehnoloogiajuht Tomer Schwartz arutleb podcastis selle üle, kuidas tehisintellekt kiirendab haavatavuste leidmist. Ta rõhutab, et käsitsi paikamine ei ole tulevikus enam jätkusuutlik."
     }
   ],
-  "date": "2026-10-28"
+  "date": "2026-10-29"
 }
